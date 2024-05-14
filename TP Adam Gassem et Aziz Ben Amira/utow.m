@@ -22,9 +22,9 @@
 ## Author: adamg <adamg@UNKNOWN>
 ## Created: 2024-05-07
 
-function W = utow (W)
-  global N;
-  W = zeros(2, N);
+function W = utow (U)
+  global Nx;
+  W = zeros(2, Nx);
   W(1,:) = U(1,:);
   W(2,:) = U(1,:) .* U (2,:) ;
 endfunction

@@ -22,6 +22,6 @@
 ## Author: adamg <adamg@UNKNOWN>
 ## Created: 2024-05-14
 
-function retval = Gab (W1,W2,dt_sur_h,F)
-  retval = 0.5*(F(W1)+F(W2)) - 0.5./dt_sur_h .*(W2-W1):
+function retval = Gab_lf (W1,W2,dt_sur_h)
+  retval = 0.5*(flux_ph(W1)+flux_ph(W2)) - (0.5/dt_sur_h) .*(W2-W1);
 endfunction

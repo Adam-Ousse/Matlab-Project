@@ -22,10 +22,10 @@
 ## Author: adamg <adamg@UNKNOWN>
 ## Created: 2024-05-14
 
-function retval = FW (W)
+function retval = flux_ph(W)
   global gamma;
-  global N;
-  retval = zeros(2, N);
+  global Nx;
+  retval = zeros(2,Nx);
   retval(1,:) = W(2,:);
-  retval(2,:) = P(W(1,:)) + W(2,:).^2 ./ W(1,:) ;
+  retval(2,:) = W(2,:).^2 ./W(1,:) +W(1,:).^gamma ;
 endfunction

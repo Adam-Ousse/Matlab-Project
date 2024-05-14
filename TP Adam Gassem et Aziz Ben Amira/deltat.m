@@ -14,18 +14,24 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{retval} =} wtou (@var{input1}, @var{input2})
+## @deftypefn {} {@var{retval} =} dt (@var{input1}, @var{input2})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: adamg <adamg@UNKNOWN>
-## Created: 2024-05-07
+## Created: 2024-05-14
 
-function retval = wtou (W)
-global Nx ;
-retval = zeros(2, Nx);
-retval(1,:) = W(1,:);
-##c= W(1,:)==0;
-retval(2,:) = W(2,:) ./ W (1,:) ;
+function retval = deltat (W)
+%Fonction qui permet de calculer le pa de temps à l'instant t
+%Input : Matrice W de taille (2,NX) :  la premiere ligne continienne la valeur de p et la 2me eligne contient la valeur de p*u
+%Output : Scalaire contenant la valeur de delta t à l'instant n
+global deltax alpha;
+u = W(2,:)./W(1,:);
+p = W(1,:);
+lambdaa1 = lambda1(p,u);
+lambdaa2 = lambda2(p,u);
+m1 = max(abs(lambdaa1));
+m2 = max(abs(lambdaa2));
+retval = alpha * deltax /(max(m1,m2));
 endfunction

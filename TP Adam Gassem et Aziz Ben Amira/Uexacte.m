@@ -23,7 +23,7 @@
 ## Created: 2024-05-06
 
 function Uex= Uexacte(x, t)
-global Ug pg Ud pd p_et u_et N;
+global Ug pg Ud pd p_et u_et Nx Nt;
 ## methode vectoriel
 ## Lambda1 et 2 correcte
 
@@ -32,9 +32,9 @@ l1et = (lambda1( pg,Ug)*t < x).* (x <= lambda1(p_et,u_et)*t);
 l1l2et = (x<=lambda2(p_et,u_et)*t  ).* (lambda1(p_et,u_et)*t < x);
 l2et = (x<=lambda2( pd,Ud)*t  ) .* (lambda2(p_et,u_et)*t < x);
 l2d = x>lambda2(pd,Ud)*t;
-Uex = zeros(2, N+1);
-Uex(1, 1:N) = l1g.*pg + l1et.*p1det(x,t) + l1l2et.* p_et + l2et.*p2det(x,t) + l2d.* pd;
-Uex(2, 1:N) = l1g.*Ug + l1et.*u1det(x,t) + l1l2et.* u_et + l2et.*u2det(x,t) + l2d.* Ud;
+Uex = zeros(2, Nx);
+Uex(1, 1:Nx) = l1g.*pg + l1et.*p1det(x,t) + l1l2et.* p_et + l2et.*p2det(x,t) + l2d.* pd;
+Uex(2, 1:Nx) = l1g.*Ug + l1et.*u1det(x,t) + l1l2et.* u_et + l2et.*u2det(x,t) + l2d.* Ud;
 
 ##
 ##

@@ -24,5 +24,5 @@
 
 function retval = lambda2 (p,u)
 global gamma;
-retval = u+ sqrt(gamma * p^(gamma-1));
+retval = u+ sqrt(gamma * p.^(gamma-1));
 endfunction
