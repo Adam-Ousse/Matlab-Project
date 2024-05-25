@@ -12,14 +12,14 @@ global pg = 1;
 global pd=4;
 %Discretisation spatiale
 global Nt = 500;
-global Nx = 1000;
+global Nx = 500;
 %Discretisation temporelle
 x_minn= -2;
 x_maxx = 2;
 t_minn = 0;
 t_maxx = 0.2;
 global deltax = (x_maxx-x_minn)/(Nx-1);
-global alpha =0.5;
+global alpha =1;
 %Discretisation spatial pour la determination de p* et u*
 h_p = (pd-0)/Nx;
 %[0,pg]
@@ -134,30 +134,35 @@ U_exacte = Uexacte(x_vals, t);
 
 subplot(223);
 hold on;
-p_plot_prox = plot(x_vals,W(1,:));
-p_plot_exacte =plot(x_vals, U_exacte(1,:), 'r');
+p_plot_prox = plot(x_vals,W(1,:),'DisplayName', 'solution approchée');
+p_plot_exacte =plot(x_vals, U_exacte(1,:), 'r','DisplayName', 'solution exacte');
 axis('equal')
 xlabel('x');
 ylabel('p(x,t)');
-title('t = 0');
+title({'Graph de p', ['t = 0']});
 yticks([0, p_et, pg, 2, 3, pd]); % Correction: specify multiple ticks as an array
 yticklabels({'0', 'p^*', 'p_g', '2', '3', 'p_d'});
 ylim([0, 4.5]);
 xlim([-2,2]);
+legend('Location', 'northoutside', 'Orientation', 'horizontal');
 hold off;
+
+
 subplot(224);
 hold on;
-u_plot_prox = plot(x_vals,W(2,:)./W(1,:));
-u_plot_exacte=plot(x_vals, U_exacte(2,:), 'r ');
+u_plot_prox = plot(x_vals,W(2,:)./W(1,:),'DisplayName', 'solution approchée');
+u_plot_exacte=plot(x_vals, U_exacte(2,:), 'r ','DisplayName', 'solution exacte');
 axis('equal')
 xlabel('x');
 ylabel('u(x,t)');
-title('t = 0');
+title({'Graph de u', ['t = 0']});
 yticks([0, Ug, u_et, 2, 3, Ud]); % Correction: specify multiple ticks as an array
 yticklabels({'0', 'u_g', 'u^*', '2', '3', 'u_d'});
 ylim([0,4.5]);
 xlim([-2,2]);
+legend('Location', 'northoutside', 'Orientation', 'horizontal');
 hold off;
+
 while (t < t_maxx && n_iter <= n_iter_max)
     dt = deltat(W);
     Wjp1(1,:) = [W(1, 2:Nx), pd];
@@ -177,11 +182,11 @@ while (t < t_maxx && n_iter <= n_iter_max)
     subplot(223);
     set(p_plot_prox, 'YData', W(1,:));
     set(p_plot_exacte, 'YData',U_exacte(1,:) );
-    title(['t = ', num2str(t)]);
+    title({'Graph de la p', ['t = ', num2str(t)]});
     subplot(224);
     set(u_plot_prox, 'YData', W(2,:)./W(1,:));
     set(u_plot_exacte, 'YData',U_exacte(2,:) );
-    title(['t = ', num2str(t)]);
+    title({'Graph de la u', ['t = ', num2str(t)]});
     drawnow;
     pause(0.001);
 end
