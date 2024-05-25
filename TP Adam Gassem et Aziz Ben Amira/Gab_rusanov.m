@@ -14,14 +14,24 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{retval} =} rayonspectral (@var{input1}, @var{input2})
+## @deftypefn {} {@var{retval} =} Gab_rusanov (@var{input1}, @var{input2})
 ##
 ## @seealso{}
 ## @end deftypefn
 
-## Author: adamg <adamg@UNKNOWN>
-## Created: 2024-05-14
+## Author: adamg <adamg@LORD_SOH_I>
+## Created: 2024-05-25
 
-function retval = rayonspectral (A)
-retval = max(abs(eig(A)));
+function retval = Gab_rusanov (W1,W2,dt_sur_h)
+  u1 = W1(2,:)./W1(1,:);
+  p1 = W1(1,:);
+  u2 = W2(2,:)./W2(1,:);
+  p2 = W2(1,:);
+  lambdaa11 = lambda1(p1,u1);
+  lambdaa21 = lambda2(p1,u1);
+  lambdaa12 = lambda1(p2,u2);
+  lambdaa22 = lambda2(p2,u2);
+  c = max([abs(lambdaa11); abs(lambdaa12); abs(lambdaa21); abs(lambdaa22)])
+  retval = 0.5 * (flux_ph(W1)+flux_ph(W2)) - 0.5*c.*(W2-W1);
+
 endfunction
