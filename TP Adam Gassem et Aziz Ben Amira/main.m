@@ -135,7 +135,7 @@ U_exacte = Uexacte(x_vals, t);
 subplot(223);
 hold on;
 p_plot_prox = plot(x_vals,W(1,:));
-p_plot_exacte =plot(x_vals, U_exacte(1,:), 'r--');
+p_plot_exacte =plot(x_vals, U_exacte(1,:), 'r');
 axis('equal')
 xlabel('x');
 ylabel('p(x,t)');
@@ -148,7 +148,7 @@ hold off;
 subplot(224);
 hold on;
 u_plot_prox = plot(x_vals,W(2,:)./W(1,:));
-u_plot_exacte=plot(x_vals, U_exacte(2,:), 'r--');
+u_plot_exacte=plot(x_vals, U_exacte(2,:), 'r ');
 axis('equal')
 xlabel('x');
 ylabel('u(x,t)');
