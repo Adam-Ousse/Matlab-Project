@@ -23,6 +23,14 @@
 ## Created: 2024-05-07
 
 function retval = p1det (x, t)
+  % Fonction qui calcule p1det pour l'onde.
+  % Input :
+  % - x : Position spatiale. vecteur
+  % - t : Temps. scalaire
+  %
+  % Output :
+  % - retval :p1det(x,t)
+
 global gamma ;
 retval = ((1/sqrt(gamma)) * (u1det(x,t)-(x./t))).^(2/(gamma-1));
 endfunction

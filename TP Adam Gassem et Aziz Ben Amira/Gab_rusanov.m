@@ -23,6 +23,15 @@
 ## Created: 2024-05-25
 
 function retval = Gab_rusanov (W1,W2,dt_sur_h)
+  % Fonction qui calcule le flux numérique avec le schéma de Rusanov (ou schéma local de Lax-Friedrichs).
+  % Input :
+  % - W1 : Matrice de taille (2, Nx), où la première ligne contient la densité (ρ) et la deuxième ligne contient la quantité de mouvement (ρu) pour l'état gauche.
+  % - W2 : Matrice de taille (2, Nx), où la première ligne contient la densité (ρ) et la deuxième ligne contient la quantité de mouvement (ρu) pour l'état droite.
+  % - dt_sur_h : vecteur, le rapport entre le pas de temps et le pas spatial.
+  %
+  % Output :
+  % - retval : Matrice de taille (2, Nx), contenant le flux numérique calculé avec le schéma de Rusanov.
+
   u1 = W1(2,:)./W1(1,:);
   p1 = W1(1,:);
   u2 = W2(2,:)./W2(1,:);

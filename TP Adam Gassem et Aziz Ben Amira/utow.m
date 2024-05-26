@@ -23,6 +23,13 @@
 ## Created: 2024-05-07
 
 function W = utow (U)
+   % Fonction qui convertit U en vecteur W
+  % Input :
+  % - U : Matrice de taille (2, Nx)
+  %
+  % Output :
+  % - W : Matrice de taille (2, Nx)
+
   global Nx;
   W = zeros(2, Nx);
   W(1,:) = U(1,:);

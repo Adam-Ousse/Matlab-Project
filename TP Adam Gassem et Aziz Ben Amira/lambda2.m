@@ -23,6 +23,14 @@
 ## Created: 2024-05-07
 
 function retval = lambda2 (p,u)
+  % Fonction qui calcule la deuxieme valeur propre (vitesse de propagation d'onde) pour un système hyperbolique de lois de conservation.
+  % Input :
+  % - p : Vecteur contenant les densités (ρ) pour chaque cellule.
+  % - u : Vecteur contenant les vitesses (u) pour chaque cellule.
+  %
+  % Output :
+  % - retval : Vecteur contenant la deuxieme valeur propre pour chaque cellule.
+
 global gamma;
 retval = u+ sqrt(gamma * p.^(gamma-1));
 endfunction

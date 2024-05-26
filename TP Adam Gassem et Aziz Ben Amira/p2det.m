@@ -23,6 +23,13 @@
 ## Created: 2024-05-07
 
 function retval = p2det (x, t)
+    % Fonction qui calcule p2det pour l'onde.
+  % Input :
+  % - x : Position spatiale. vecteur
+  % - t : Temps. scalaire
+  %
+  % Output :
+  % - retval :p2det(x,t)
 global gamma;
 retval = ((1/sqrt(gamma)) * ((x./t) - u2det(x,t))).^(2/(gamma-1));
 

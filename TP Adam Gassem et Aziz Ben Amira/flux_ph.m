@@ -23,6 +23,15 @@
 ## Created: 2024-05-14
 
 function retval = flux_ph(W)
+  % Fonction qui calcule le flux physique
+  % Input :
+  % - W : Matrice de taille (2, Nx), où la première ligne contient la densité (ρ)
+  %       et la deuxième ligne contient la quantité de mouvement (ρu) pour chaque cellule.
+  %
+  % Output :
+  % - retval : Matrice de taille (2, Nx), où la première ligne contient le flux de densité
+  %            (ρu) et la deuxième ligne contient le flux de quantité de mouvement (ρu^2 + ρ^γ).
+
   global gamma;
   global Nx;
   retval = zeros(2,Nx);

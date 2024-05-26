@@ -23,6 +23,14 @@
 ## Created: 2024-05-25
 
 function val = entree_valide (prompt, condition, default_val)
+  % Fonction qui demande à l'utilisateur de saisir une valeur et vérifie si elle est valide.
+  % Input :
+  % - prompt : Chaîne de caractères, le message à afficher à l'utilisateur pour l'inviter à entrer une valeur.
+  % - condition : Fonction handle, une condition que l'entrée de l'utilisateur doit satisfaire.
+  % - default_val : Scalaire, la valeur par défaut à utiliser si l'entrée de l'utilisateur est invalide.
+  % Output :
+  % - val : Scalaire, la valeur validée par l'utilisateur ou la valeur par défaut si l'entrée est invalide.
+
   val = input(prompt);
   if ~(isnumeric(val) && condition(val))
     disp(['Entrée invalide. Usage de la valeur par défaut: ', num2str(default_val)]);

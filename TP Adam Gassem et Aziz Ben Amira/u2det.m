@@ -23,6 +23,14 @@
 ## Created: 2024-05-07
 
 function retval = u2det (x, t)
+   % Fonction qui calcule u2det
+  % Input :
+  % - x : Position spatiale vecteur
+  % - t : Temps scalire
+  %
+  % Output :
+  % - retval : u2det(x,t)
+
   global gamma Ud pd;
   retval = ((2/(gamma+1)) * (x./t)) + (((gamma-1)/(gamma+1)) * Ud) - ((2*sqrt(gamma))/(gamma+1)) * pd^((gamma-1)/2);
 

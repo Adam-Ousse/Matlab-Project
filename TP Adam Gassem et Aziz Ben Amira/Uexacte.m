@@ -24,6 +24,16 @@
 
 function Uex= Uexacte(x, t)
 global Ug pg Ud pd p_et u_et Nx Nt;
+% Fonction qui calcule la solution exacte à t pour different x.
+  % Input :
+  % - x : Position spatiale vecteur
+  % - t : Temps.
+  %
+  % Output :
+  % - Uex : Matrice de taille (2, Nx) contenant la solution exacte
+
+
+
 ## methode vectoriel
 ## Lambda1 et 2 correcte
 

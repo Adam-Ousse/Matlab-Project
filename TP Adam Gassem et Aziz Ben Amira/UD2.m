@@ -22,6 +22,12 @@
 ## Author: adamg <adamg@MR_SOH_II>
 ## Created: 2024-04-30
 function ud2 = UD2 (p)
+    % Fonction qui U_D^2 pourla determination de p* et u*
+  % Input :
+  % - p
+  %
+  % Output :
+  % - ud2 : U_D^2(p)
   global Ud pd;
   gamma = 1.4;
 

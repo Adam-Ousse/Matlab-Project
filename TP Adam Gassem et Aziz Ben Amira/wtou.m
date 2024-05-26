@@ -23,6 +23,13 @@
 ## Created: 2024-05-07
 
 function retval = wtou (W)
+   % Fonction qui convertit W en vecteur U
+  % Input :
+  % - W : Matrice de taille (2, Nx)
+  %
+  % Output :
+  % - U : Matrice de taille (2, Nx)
+
 global Nx ;
 retval = zeros(2, Nx);
 retval(1,:) = W(1,:);

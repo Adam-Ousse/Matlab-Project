@@ -23,6 +23,12 @@
 ## Created: 2024-04-30
 
 function ud1 = UD1 (p)
+  % Fonction qui U_D^1 pourla determination de p* et u*
+  % Input :
+  % - p :
+  %
+  % Output :
+  % - ud1 : U_D^1(p)
   global Ug pg;
   gamma = 1.4;
   ud1 = (Ug + (2.*sqrt(gamma)/(gamma-1)).*(pg.^((gamma-1)/2)-p.^((gamma-1)/2))).*(p<pg);
